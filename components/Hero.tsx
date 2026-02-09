@@ -38,10 +38,10 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
               </button>
               <div className="flex items-center gap-4 px-6">
                 <div className="flex -space-x-3">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 1" />
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 2" />
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 3" />
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 4" />
+                  <img src="/images/avatars/1.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 1" />
+                  <img src="/images/avatars/2.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 2" />
+                  <img src="/images/avatars/3.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 3" />
+                  <img src="/images/avatars/4.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 4" />
                 </div>
                 <div className="text-left">
                   <div className="font-bold text-slate-900">1200+</div>
