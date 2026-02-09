@@ -5,20 +5,20 @@ import { Sparkles } from 'lucide-react';
 const BeforeAfter = () => {
     const examples = [
         {
-            before: '/images/before-after/living_room_dirty.png',
-            after: '/images/before-after/living_room_clean.png',
+            before: 'images/before-after/living_room_dirty.png',
+            after: 'images/before-after/living_room_clean.png',
             alt: 'Гостиная',
             title: 'Генеральная уборка гостиной'
         },
         {
-            before: '/images/before-after/window_dirty.png',
-            after: '/images/before-after/window_clean.png',
+            before: 'images/before-after/window_dirty.png',
+            after: 'images/before-after/window_clean.png',
             alt: 'Окно',
             title: 'Мойка окон'
         },
         {
-            before: '/images/before-after/kitchen_dirty.png',
-            after: '/images/before-after/kitchen_clean.png',
+            before: 'images/before-after/kitchen_dirty.png',
+            after: 'images/before-after/kitchen_clean.png',
             alt: 'Кухня',
             title: 'Уборка кухни'
         }
