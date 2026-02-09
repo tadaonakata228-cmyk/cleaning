@@ -7,20 +7,20 @@ const Services: React.FC = () => {
     {
       title: "Поддерживающая",
       price: "от 220\u00A0₽/м²",
-      image: "https://loremflickr.com/800/600/mopping?lock=10",
+      image: "https://static.tildacdn.com/tild3165-6333-4166-b130-656365633064/___4.jpg",
       benefits: ["Влажная уборка полов", "Удаление пыли с мебели", "Очистка зеркал", "Уборка санузла"]
     },
     {
       title: "Генеральная",
       price: "от 360\u00A0₽/м²",
-      image: "https://loremflickr.com/800/600/cleaning,tools?lock=20",
+      image: "https://static.tildacdn.com/tild3630-6465-4565-a534-356331323162/noroot.png",
       popular: true,
       benefits: ["Обезжиривание кухни", "Глубокая чистка с/у", "Мойка внутри шкафов", "Очистка стен и дверей"]
     },
     {
       title: "После ремонта",
       price: "от 360\u00A0₽/м²",
-      image: "https://loremflickr.com/800/600/construction,cleanup?lock=30",
+      image: "https://static.tildacdn.com/tild3264-3836-4536-b133-303066656261/___1.jpg",
       benefits: ["Сбор строймусора", "Обеспыливание всех ниш", "Мойка окон от цемента", "Удаление затирки"]
     }
   ];
