@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
               <span className="text-white font-bold text-xl">L</span>
             </div>
             <div className="hidden sm:block">
-              <div className="font-bold text-lg leading-tight tracking-tight">ЛАЙТ КЛИНИНГ</div>
+              <div className="font-bold text-lg leading-tight tracking-tight">УБОРКА КВАРТИР</div>
               <div className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Екатеринбург</div>
             </div>
           </a>

@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
               <div className="w-10 h-10 blue-gradient rounded-xl flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">L</span>
               </div>
-              <div className="font-bold text-lg leading-tight tracking-tight uppercase">ЛАЙТ КЛИНИНГ</div>
+              <div className="font-bold text-lg leading-tight tracking-tight uppercase">УБОРКА КВАРТИР</div>
             </a>
             <p className="text-slate-500 text-sm leading-relaxed mb-6">
               Профессиональный клининг для тех, кто ценит свое время и комфорт. Работаем в Екатеринбурге и области с 2018 года.
