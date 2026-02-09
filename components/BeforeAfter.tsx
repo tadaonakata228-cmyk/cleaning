@@ -5,20 +5,20 @@ import { Sparkles } from 'lucide-react';
 const BeforeAfter = () => {
     const examples = [
         {
-            before: 'https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=800&auto=format&fit=crop&grayscale', // Grayscale to simulate dirty/dull
-            after: 'https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=800&auto=format&fit=crop',
+            before: 'https://loremflickr.com/800/600/messy,room?lock=41',
+            after: 'https://loremflickr.com/800/600/clean,livingroom?lock=42',
             alt: 'Гостиная',
             title: 'Генеральная уборка гостиной'
         },
         {
-            before: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop',
-            after: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=800&auto=format&fit=crop',
+            before: 'https://loremflickr.com/800/600/dirty,window?lock=51',
+            after: 'https://loremflickr.com/800/600/clean,window?lock=52',
             alt: 'Окно',
             title: 'Мойка окон'
         },
         {
-            before: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=800&auto=format&fit=crop',
-            after: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=800&auto=format&fit=crop',
+            before: 'https://loremflickr.com/800/600/messy,kitchen?lock=61',
+            after: 'https://loremflickr.com/800/600/clean,kitchen?lock=62',
             alt: 'Кухня',
             title: 'Уборка кухни'
         }
