@@ -10,7 +10,7 @@ const Team = () => {
             experience: "5 лет",
             rating: 5.0,
             reviews: 142,
-            image: "images/team/cleaner_3.png",
+            image: "/images/team/cleaner_3.png",
             specialty: "Генеральная уборка"
         },
         {
@@ -19,7 +19,7 @@ const Team = () => {
             experience: "4 года",
             rating: 4.9,
             reviews: 98,
-            image: "images/team/cleaner_2.png",
+            image: "/images/team/cleaner_2.png",
             specialty: "Химчистка мебели"
         },
         {
@@ -28,7 +28,7 @@ const Team = () => {
             experience: "3 года",
             rating: 4.9,
             reviews: 115,
-            image: "images/team/cleaner_1.png",
+            image: "/images/team/cleaner_1.png",
             specialty: "Поддерживающая уборка"
         }
     ];

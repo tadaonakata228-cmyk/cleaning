@@ -8,7 +8,7 @@ const Services = () => {
       title: "Поддерживающая",
       subtitle: "Регулярная чистота",
       price: "от 120 ₽/м²",
-      image: "images/services/standard.png",
+      image: "/images/services/standard.png",
       benefits: ["Влажная уборка", "Пыль и поверхности", "Санузел", "Кухня (фасады)"],
       color: "from-blue-500 to-cyan-400",
       delay: 0
@@ -17,7 +17,7 @@ const Services = () => {
       title: "Генеральная",
       subtitle: "Тотальное обновление",
       price: "от 250 ₽/м²",
-      image: "images/services/general.png",
+      image: "/images/services/general.png",
       video: true, // Placeholder for future video background
       benefits: ["Внутри шкафов", "Сложные пятна", "Духовка и вытяжка", "Пароочиститель"],
       color: "from-brand-600 to-violet-600",
@@ -28,7 +28,7 @@ const Services = () => {
       title: "После ремонта",
       subtitle: "Новая жизнь",
       price: "от 300 ₽/м²",
-      image: "images/services/repair.png",
+      image: "/images/services/repair.png",
       benefits: ["Строительная пыль", "Следы краски/клея", "Мытье окон", "Дезинфекция"],
       color: "from-slate-700 to-slate-900",
       delay: 0.2

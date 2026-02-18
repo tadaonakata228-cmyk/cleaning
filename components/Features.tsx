@@ -40,7 +40,7 @@ const Features = () => {
             <div className="mt-8 relative h-40 rounded-2xl overflow-hidden">
               {/* Visual representation could be an image or abstract shape */}
               <div className="absolute inset-0 bg-green-50/50 flex items-center justify-center">
-                <img src="images/services/standard.png" className="opacity-80 hover:opacity-100 transition-opacity duration-700 w-full h-full object-cover" alt="Eco" />
+                <img src="/images/services/standard.png" className="opacity-80 hover:opacity-100 transition-opacity duration-700 w-full h-full object-cover" alt="Eco" />
               </div>
             </div>
           </motion.div>
