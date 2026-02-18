@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Shield, Award, Clock } from 'lucide-react';
+import cleaner1 from '@/assets/images/team/cleaner_1.png';
+import cleaner2 from '@/assets/images/team/cleaner_2.png';
+import cleaner3 from '@/assets/images/team/cleaner_3.png';
 
 const Team = () => {
     const team = [
@@ -10,7 +13,7 @@ const Team = () => {
             experience: "5 лет",
             rating: 5.0,
             reviews: 142,
-            image: "/images/team/cleaner_3.png",
+            image: cleaner3,
             specialty: "Генеральная уборка"
         },
         {
@@ -19,7 +22,7 @@ const Team = () => {
             experience: "4 года",
             rating: 4.9,
             reviews: 98,
-            image: "/images/team/cleaner_2.png",
+            image: cleaner2,
             specialty: "Химчистка мебели"
         },
         {
@@ -28,7 +31,7 @@ const Team = () => {
             experience: "3 года",
             rating: 4.9,
             reviews: 115,
-            image: "/images/team/cleaner_1.png",
+            image: cleaner1,
             specialty: "Поддерживающая уборка"
         }
     ];

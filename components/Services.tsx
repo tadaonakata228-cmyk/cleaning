@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import standardImage from '@/assets/images/services/standard.png';
+import generalImage from '@/assets/images/services/general.png';
+import repairImage from '@/assets/images/services/repair.png';
 
 const Services = () => {
   const services = [
@@ -8,7 +11,7 @@ const Services = () => {
       title: "Поддерживающая",
       subtitle: "Регулярная чистота",
       price: "от 120 ₽/м²",
-      image: "/images/services/standard.png",
+      image: standardImage,
       benefits: ["Комплексная влажная уборка", "Удаление пыли со всех поверхностей", "Дезинфекция санузлов", "Обезжиривание кухонных фасадов"],
       color: "from-blue-500 to-cyan-400",
       delay: 0
@@ -17,7 +20,7 @@ const Services = () => {
       title: "Генеральная",
       subtitle: "Тотальное обновление",
       price: "от 250 ₽/м²",
-      image: "/images/services/general.png",
+      image: generalImage,
       video: true, // Placeholder for future video background
       benefits: ["Глубокая чистка внутри шкафов", "Удаление сложных пятен", "Чистка духовки и вытяжки", "Обработка пароочистителем"],
       color: "from-brand-600 to-violet-600",
@@ -28,7 +31,7 @@ const Services = () => {
       title: "После ремонта",
       subtitle: "Новая жизнь",
       price: "от 300 ₽/м²",
-      image: "/images/services/repair.png",
+      image: repairImage,
       benefits: ["Удаление строительной пыли", "Устранение следов краски/клея", "Мойка окон с двух сторон", "Полная дезинфекция"],
       color: "from-slate-700 to-slate-900",
       delay: 0.2
