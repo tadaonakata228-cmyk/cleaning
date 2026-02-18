@@ -6,6 +6,7 @@ import Calculator from './components/Calculator';
 import Features from './components/Features';
 import BeforeAfter from './components/BeforeAfter';
 import Services from './components/Services';
+import Team from './components/Team';
 import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Features />
         <BeforeAfter />
         <Services />
+        <Team />
         <Testimonials />
         <div id="order-form">
           <ContactForm />
