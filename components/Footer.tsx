@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs text-slate-400 font-medium mb-1">Адрес</div>
-                  <div className="text-sm font-bold text-slate-900">г. Екатеринбург, ул. Ленина, д. 100, офис 205</div>
+                  <div className="text-sm font-bold text-slate-900">г. Название, ул. Название, д. 00, офис 00</div>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -87,8 +87,8 @@ const Footer: React.FC = () => {
         <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-xs font-medium">
           <div>2025 © ООО «КЛИНИНГ» — Все права защищены</div>
           <div className="flex gap-6">
-            <span>ИНН 7453000000</span>
-            <span>ОГРН 1257400000000</span>
+            <span>ИНН 0000000000</span>
+            <span>ОГРН 0000000000000</span>
           </div>
         </div>
       </div>

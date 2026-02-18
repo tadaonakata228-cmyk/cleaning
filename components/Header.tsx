@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
               </div>
               <div className={`hidden sm:block leading-tight ${isScrolled ? 'text-white' : 'text-slate-900'}`}>
                 <div className="font-bold text-lg tracking-tight">КЛИНИНГ</div>
-                <div className="text-[10px] opacity-60 uppercase tracking-widest font-semibold">Екатеринбург</div>
+                <div className="text-[10px] opacity-60 uppercase tracking-widest font-semibold">Ваш город</div>
               </div>
             </a>
 
