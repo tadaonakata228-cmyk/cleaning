@@ -1,103 +1,103 @@
 import React from 'react';
-import { Zap, Heart, CheckCircle2, UserCheck, Droplets, Wallet } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Shield, Clock, Award, Leaf, Zap, Smartphone } from 'lucide-react';
 
-const Features: React.FC = () => {
-  const features = [
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Выезд в день обращения",
-      description: "Срочно нужно прибраться? Мы будем у вас уже через 1.5–2 часа после звонка.",
-      color: "bg-blue-100 text-blue-600",
-      delay: 0
-    },
-    {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Эко-химия",
-      description: "Используем только безопасные, гипоаллергенные средства без едкого запаха.",
-      color: "bg-pink-100 text-pink-600",
-      delay: 0.1
-    },
-    {
-      icon: <Wallet className="w-6 h-6" />,
-      title: "Оплата после уборки",
-      description: "Никаких предоплат. Вы проверяете качество работы и только потом оплачиваете.",
-      color: "bg-green-100 text-green-600",
-      delay: 0.2
-    },
-    {
-      icon: <UserCheck className="w-6 h-6" />,
-      title: "Проверенный персонал",
-      description: "Каждый клинер прошел обучение и проверку службы безопасности.",
-      color: "bg-purple-100 text-purple-600",
-      delay: 0.3
-    },
-    {
-      icon: <CheckCircle2 className="w-6 h-6" />,
-      title: "Гарантия 24 часа",
-      description: "Если вы найдете недостатки в течение суток, мы устраним их бесплатно.",
-      color: "bg-orange-100 text-orange-600",
-      delay: 0.4
-    },
-    {
-      icon: <Droplets className="w-6 h-6" />,
-      title: "Свое оборудование",
-      description: "Привозим мощные пылесосы, парогенераторы и весь необходимый инвентарь.",
-      color: "bg-indigo-100 text-indigo-600",
-      delay: 0.5
-    }
-  ];
-
+const Features = () => {
   return (
-    <section id="features" className="py-24 bg-slate-50 relative overflow-hidden">
-      {/* Background blobs */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-72 h-72 bg-brand-100 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-30"></div>
-      </div>
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900 tracking-tight"
-          >
-            Почему выбирают <span className="text-brand-600">нас</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-slate-500 text-lg md:text-xl leading-relaxed"
-          >
-            Мы создали сервис, которым пользуемся сами. Внимание к деталям и забота о клиенте — наши главные приоритеты.
-          </motion.p>
+    <section className="py-24 bg-slate-50">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="mb-16 text-center max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+            Больше, чем просто <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-400">клиннинг</span>
+          </h2>
+          <p className="text-xl text-slate-500">
+            Технологичный подход к чистоте. Мы объединили качественный сервис с удобством цифровых продуктов.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: item.delay }}
-              whileHover={{ y: -10 }}
-              className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-300 group"
-            >
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 ${item.color}`}>
-                {item.icon}
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
+
+          {/* Large Card - Eco Friendly */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="md:col-span-2 lg:col-span-2 row-span-2 bg-white rounded-[2.5rem] p-10 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col justify-between overflow-hidden relative group"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover:bg-green-100 transition-colors duration-700"></div>
+
+            <div className="relative z-10">
+              <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Leaf size={28} />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-slate-900">{item.title}</h3>
-              <p className="text-slate-600 leading-relaxed font-medium">
-                {item.description}
+              <h3 className="text-3xl font-bold text-slate-900 mb-4">Эко-безопасность</h3>
+              <p className="text-lg text-slate-500 leading-relaxed max-w-md">
+                Используем только сертифицированные гипоаллергенные средства. Безопасно для детей и домашних животных.
               </p>
-            </motion.div>
-          ))}
+            </div>
+            <div className="mt-8 relative h-40 rounded-2xl overflow-hidden">
+              {/* Visual representation could be an image or abstract shape */}
+              <div className="absolute inset-0 bg-green-50/50 flex items-center justify-center">
+                <img src="images/services/standard.png" className="opacity-80 hover:opacity-100 transition-opacity duration-700 w-full h-full object-cover" alt="Eco" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Medium Card - Insurance */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="md:col-span-1 lg:col-span-2 bg-brand-600 rounded-[2.5rem] p-8 shadow-xl shadow-brand-900/20 text-white relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-500 to-blue-600 opacity-100 group-hover:scale-105 transition-transform duration-700"></div>
+            <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6">
+              <div className="flex-1">
+                <Shield className="w-12 h-12 mb-4 text-brand-200" />
+                <h3 className="text-2xl font-bold mb-2">Страхование</h3>
+                <p className="text-brand-100">Ответственность застрахована на 5 млн ₽.</p>
+              </div>
+              <div className="hidden lg:block">
+                <div className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-xl text-sm font-bold border border-white/20">
+                  AIG Insurance
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Small Card - Speed */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-brand-100 transition-colors group"
+          >
+            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-4 group-hover:rotate-12 transition-transform">
+              <Zap size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">Молниеносно</h3>
+            <p className="text-slate-500">Приезд клинера возможен через 2 часа после заказа.</p>
+          </motion.div>
+
+          {/* Small Card - App */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="bg-slate-900 rounded-[2.5rem] p-8 shadow-xl shadow-slate-900/20 text-white group"
+          >
+            <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-white mb-4">
+              <Smartphone size={24} />
+            </div>
+            <h3 className="text-xl font-bold mb-2">Удобство</h3>
+            <p className="text-slate-400">Управление заказом в 2 клика через сайт или телефон.</p>
+          </motion.div>
+
         </div>
       </div>
     </section>
