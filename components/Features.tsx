@@ -9,7 +9,7 @@ const Features = () => {
         <div className="mb-16 text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
             Больше, чем просто <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-400">клиннинг</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-400">клининг</span>
           </h2>
           <p className="text-xl text-slate-500">
             Технологичный подход к чистоте. Мы объединили качественный сервис с удобством цифровых продуктов.

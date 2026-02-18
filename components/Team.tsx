@@ -118,7 +118,7 @@ const Team = () => {
                                 <div className="flex gap-2 w-full">
                                     <div className="flex-1 bg-brand-50 rounded-lg py-2 px-3 flex flex-col items-center text-center">
                                         <Award className="w-5 h-5 text-brand-500 mb-1" />
-                                        <span className="text-[10px] uppercase font-bold text-brand-400 tracking-wide">Топ клинер</span>
+                                        <span className="text-[10px] uppercase font-bold text-brand-400 tracking-wide">Топ-клинер</span>
                                     </div>
                                     <div className="flex-1 bg-blue-50 rounded-lg py-2 px-3 flex flex-col items-center text-center">
                                         <Clock className="w-5 h-5 text-blue-500 mb-1" />

@@ -9,7 +9,7 @@ const Services = () => {
       subtitle: "Регулярная чистота",
       price: "от 120 ₽/м²",
       image: "/images/services/standard.png",
-      benefits: ["Влажная уборка", "Пыль и поверхности", "Санузел", "Кухня (фасады)"],
+      benefits: ["Комплексная влажная уборка", "Удаление пыли со всех поверхностей", "Дезинфекция санузлов", "Обезжиривание кухонных фасадов"],
       color: "from-blue-500 to-cyan-400",
       delay: 0
     },
@@ -19,7 +19,7 @@ const Services = () => {
       price: "от 250 ₽/м²",
       image: "/images/services/general.png",
       video: true, // Placeholder for future video background
-      benefits: ["Внутри шкафов", "Сложные пятна", "Духовка и вытяжка", "Пароочиститель"],
+      benefits: ["Глубокая чистка внутри шкафов", "Удаление сложных пятен", "Чистка духовки и вытяжки", "Обработка пароочистителем"],
       color: "from-brand-600 to-violet-600",
       popular: true,
       delay: 0.1
@@ -29,7 +29,7 @@ const Services = () => {
       subtitle: "Новая жизнь",
       price: "от 300 ₽/м²",
       image: "/images/services/repair.png",
-      benefits: ["Строительная пыль", "Следы краски/клея", "Мытье окон", "Дезинфекция"],
+      benefits: ["Удаление строительной пыли", "Устранение следов краски/клея", "Мойка окон с двух сторон", "Полная дезинфекция"],
       color: "from-slate-700 to-slate-900",
       delay: 0.2
     }

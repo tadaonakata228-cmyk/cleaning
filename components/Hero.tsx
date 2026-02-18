@@ -81,29 +81,29 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-md border border-white/60 rounded-full text-brand-600 text-sm font-semibold mb-8 shadow-sm hover:shadow-md transition-all cursor-default select-none animate-float"
             >
               <Sparkles className="w-4 h-4 fill-brand-200 text-brand-500" />
-              <span>Сервис будущего уже здесь</span>
+              <span>Сервис премиум-класса</span>
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 leading-[1.05] mb-8 tracking-tight max-w-4xl mx-auto lg:mx-0">
-              Профессиональная<br />
-              уборка квартир<br />
+              Идеальная чистота<br />
+              вашего дома<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-blue-500 to-brand-400 animate-shimmer bg-[length:200%_auto]">за 2 часа</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-500 font-medium mb-12 max-w-2xl mx-auto lg:mx-0 flex flex-col md:flex-row gap-2 md:gap-6 justify-center lg:justify-start items-center">
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-brand-500" />
-                Фиксированная цена
+                Честные цены
               </span>
               <span className="hidden md:inline w-1.5 h-1.5 rounded-full bg-slate-300"></span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-brand-500" />
-                Приезд сегодня
+                Выезд в день заказа
               </span>
               <span className="hidden md:inline w-1.5 h-1.5 rounded-full bg-slate-300"></span>
               <span className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-brand-500" />
-                Гарантия
+                Гарантия качества
               </span>
             </p>
 
@@ -123,7 +123,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
 
               <div className="text-sm font-medium text-slate-400 flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                2 свободных клинера сейчас
+                2 клинера свободны сейчас
               </div>
             </div>
           </motion.div>
@@ -142,7 +142,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
               <img
-                src="images/hero_image.png"
+                src="/images/hero_image.png"
                 className="w-full h-full object-cover"
                 alt="Clean Interior"
               />
@@ -160,7 +160,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-slate-500 uppercase tracking-wide">Результат</p>
-                    <p className="font-bold text-slate-800">Идеальная чистота</p>
+                    <p className="font-bold text-slate-800">Безупречная чистота</p>
                   </div>
                 </div>
                 <div className="h-8 w-px bg-slate-200"></div>
@@ -179,7 +179,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <img src={`images/avatars/${i}.jpg`} className="w-full h-full object-cover" />
+                      <img src={`/images/avatars/${i}.jpg`} className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>
