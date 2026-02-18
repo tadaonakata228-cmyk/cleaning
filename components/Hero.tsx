@@ -179,7 +179,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <img src={`/images/avatars/${i}.jpg`} className="w-full h-full object-cover" />
+                      <img src={`/images/avatars/${i}.png`} className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>
