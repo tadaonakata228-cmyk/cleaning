@@ -6,22 +6,22 @@ import { motion } from 'framer-motion';
 const BeforeAfter = () => {
     const examples = [
         {
-            before: '/images/before-after/living_room_dirty.png',
-            after: '/images/before-after/living_room_clean.png',
+            before: 'images/before-after/living_room_dirty.png',
+            after: 'images/before-after/living_room_clean.png',
             alt: 'Гостиная',
             title: 'Генеральная уборка гостиной',
             desc: "Удалили сложные пятна с ковролина и мягкой мебели"
         },
         {
-            before: '/images/before-after/window_dirty.png',
-            after: '/images/before-after/window_clean.png',
+            before: 'images/before-after/window_dirty.png',
+            after: 'images/before-after/window_clean.png',
             alt: 'Окно',
             title: 'Мойка окон',
             desc: "Вернули прозрачность и блеск окнам после ремонта"
         },
         {
-            before: '/images/before-after/kitchen_dirty.png',
-            after: '/images/before-after/kitchen_clean.png',
+            before: 'images/before-after/kitchen_dirty.png',
+            after: 'images/before-after/kitchen_clean.png',
             alt: 'Кухня',
             title: 'Уборка кухни',
             desc: "Обезжирили поверхности и технику"

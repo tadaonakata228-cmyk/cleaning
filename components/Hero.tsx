@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
                 <div className="flex -space-x-4">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-slate-200">
-                      <img src={`/images/avatars/${i}.jpg`} className="w-full h-full object-cover" alt={`Client ${i}`} />
+                      <img src={`images/avatars/${i}.jpg`} className="w-full h-full object-cover" alt={`Client ${i}`} />
                     </div>
                   ))}
                 </div>
@@ -148,7 +148,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 overflow-hidden rounded-full border border-slate-200">
-                    <img src="/images/avatars/4.jpg" className="w-full h-full object-cover" alt="Reviewer" />
+                    <img src="images/avatars/4.jpg" className="w-full h-full object-cover" alt="Reviewer" />
                   </div>
                   <div>
                     <div className="flex text-yellow-400 w-20">
