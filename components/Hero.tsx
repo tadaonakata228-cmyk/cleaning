@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { Star, ShieldCheck, Clock } from 'lucide-react';
+import { Star, ShieldCheck, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface HeroProps {
   onOrderClick: () => void;
@@ -8,94 +8,166 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-50">
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-50 min-h-[90vh] flex items-center">
       {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full blue-gradient opacity-[0.03] -skew-x-12 translate-x-1/4" aria-hidden="true"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-brand-200/20 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-200/20 rounded-full blur-[100px] transform -translate-x-1/3 translate-y-1/3"></div>
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 5, 0]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 right-[10%] w-20 h-20 bg-gradient-to-br from-brand-400 to-blue-500 rounded-3xl opacity-10 blur-xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, 30, 0],
+            rotate: [0, -10, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-1/4 left-[5%] w-32 h-32 bg-gradient-to-tr from-purple-400 to-brand-500 rounded-full opacity-10 blur-xl"
+        />
+      </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <div className="lg:w-3/5 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-6 animate-pulse">
-              <Star className="w-4 h-4 fill-current" />
-              Клининг №1 в Екатеринбурге
-            </div>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8">
-              Уборка квартир и <br />
-              домов от <span className="text-blue-600">110 ₽/м²</span>
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:w-1/2 text-center lg:text-left"
+          >
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-brand-100 rounded-full text-brand-600 text-sm font-semibold mb-8 shadow-sm hover:shadow-md transition-shadow cursor-default"
+            >
+              <Star className="w-4 h-4 fill-brand-500 text-brand-500" />
+              <span>Клининг №1 в Екатеринбурге</span>
+            </motion.div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
+              Идеальная <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">чистота</span> <br />
+              без компромиссов
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Вернем чистоту и уют в ваш дом за 4 часа. Используем профессиональное оборудование и гипоаллергенные средства. Оплата только за результат.
+              Технологичный подход к уборке. Мы используем эко-средства и профессиональное оборудование, чтобы ваш дом сиял.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
-              <button
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-16">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={onOrderClick}
-                className="w-full sm:w-auto px-10 py-5 blue-gradient text-white rounded-2xl font-bold text-lg shadow-2xl shadow-blue-500/40 hover:scale-[1.02] active:scale-95 transition-all"
+                className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-brand-600 to-brand-500 text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-500/30 hover:shadow-brand-500/50 transition-all flex items-center justify-center gap-2 group"
               >
                 Рассчитать стоимость
-              </button>
-              <div className="flex items-center gap-4 px-6">
-                <div className="flex -space-x-3">
-                  <img src="images/avatars/1.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 1" />
-                  <img src="images/avatars/2.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 2" />
-                  <img src="images/avatars/3.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 3" />
-                  <img src="images/avatars/4.jpg" className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="Клиент 4" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+
+              <div className="flex items-center gap-4 px-6 py-4 rounded-2xl hover:bg-white/50 transition-colors">
+                <div className="flex -space-x-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-slate-200">
+                      <img src={`https://ui-avatars.com/api/?name=User+${i}&background=random`} className="w-full h-full object-cover" alt={`Client ${i}`} />
+                    </div>
+                  ))}
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-slate-900">1200+</div>
+                  <div className="font-bold text-slate-900 text-lg">1200+</div>
                   <div className="text-xs text-slate-500 font-medium">Довольных клиентов</div>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
-              <div className="flex items-center gap-3 text-slate-700 font-medium">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-                  <ShieldCheck className="w-5 h-5 text-green-500" />
+            <div className="flex items-center justify-center lg:justify-start gap-8 text-sm font-semibold text-slate-600">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
-                Полная страховка
+                Страховка
               </div>
-              <div className="flex items-center gap-3 text-slate-700 font-medium">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-                  <Clock className="w-5 h-5 text-blue-500" />
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                  <Clock className="w-4 h-4" />
                 </div>
-                Выезд за 60 мин
+                Выезд 60 мин
               </div>
-              <div className="flex items-center gap-3 text-slate-700 font-medium">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-                  <Star className="w-5 h-5 text-orange-400 fill-current" />
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+                  <Star className="w-4 h-4" />
                 </div>
                 PRO-клинеры
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:w-2/5 relative">
-            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-3xl border-8 border-white group">
+          {/* Right Visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="lg:w-1/2 relative"
+          >
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-brand-900/10 border-[6px] border-white ring-1 ring-slate-900/5 rotate-1 hover:rotate-0 transition-all duration-700 group">
               <img
-                src="https://static.tildacdn.com/tild3836-6636-4434-a464-303632353264/_.jpg"
-                className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700"
-                alt="Профессиональная уборка гостиной в Екатеринбурге"
+                src="https://images.unsplash.com/photo-1581578731117-104f2a41272c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                className="w-full h-[600px] object-cover object-center transform group-hover:scale-105 transition-transform duration-1000"
+                alt="Modern Living Room Cleaning"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur rounded-2xl shadow-xl">
+
+              {/* Floating Cards within Image */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="absolute top-8 left-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50"
+              >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                    <Star className="w-5 h-5 text-green-600 fill-current" />
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                    <CheckCircle className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">Результат</div>
-                    <div className="text-sm font-bold text-slate-800">Идеальная чистота на 100%</div>
+                    <p className="text-xs font-bold text-slate-400 uppercase">Статус</p>
+                    <p className="font-bold text-slate-800">Уборка завершена</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 1 }}
+                className="absolute bottom-8 right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 max-w-xs"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 overflow-hidden rounded-full">
+                    <img src="https://ui-avatars.com/api/?name=Marina+I&background=random" alt="Reviewer" />
+                  </div>
+                  <div>
+                    <div className="flex text-yellow-400 w-20">
+                      <Star className="w-3 h-3 fill-current" />
+                      <Star className="w-3 h-3 fill-current" />
+                      <Star className="w-3 h-3 fill-current" />
+                      <Star className="w-3 h-3 fill-current" />
+                      <Star className="w-3 h-3 fill-current" />
+                    </div>
+                    <p className="text-xs font-medium text-slate-600 mt-1">"Моя квартира никогда не была такой чистой!"</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-            {/* Float Elements */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-40"></div>
-          </div>
+
+            {/* Background Blobs for Visual */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10 bg-gradient-to-tr from-brand-200/40 to-purple-200/40 rounded-full blur-3xl opacity-50"></div>
+          </motion.div>
         </div>
       </div>
     </section>

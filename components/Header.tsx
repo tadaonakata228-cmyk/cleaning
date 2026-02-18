@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Menu, X } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeaderProps {
   onOrderClick: () => void;
@@ -19,79 +20,115 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 blue-gradient rounded-xl flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-xl">K</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-lg leading-tight tracking-tight">КЛИНИНГ</div>
-              <div className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Екатеринбург</div>
-            </div>
-          </a>
-        </div>
-
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
-          <a href="#features" className="hover:text-blue-600 transition-colors">Преимущества</a>
-          <a href="#services" className="hover:text-blue-600 transition-colors">Услуги</a>
-          <a href="#reviews" className="hover:text-blue-600 transition-colors">Отзывы</a>
-          <a href="#order-form" className="hover:text-blue-600 transition-colors">Контакты</a>
-        </nav>
-
-        <div className="flex items-center gap-3 md:gap-6">
-          <div className="hidden md:flex flex-col items-end">
-            <a href="tel:+73510000000" className="font-bold hover:text-blue-600 transition-colors flex items-center gap-2">
-              <Phone className="w-4 h-4 text-blue-500" />
-              +7 (351) 000-00-00
+    <>
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'}`}
+      >
+        <div className={`container mx-auto px-4 md:px-6 transition-all duration-300 ${isScrolled ? 'max-w-6xl' : ''}`}>
+          <div className={`
+            flex items-center justify-between px-6 py-3 rounded-full border transition-all duration-300
+            ${isScrolled
+              ? 'glass-dark border-slate-700/50 shadow-2xl bg-slate-900/80 backdrop-blur-xl'
+              : 'bg-white/10 border-transparent md:bg-white/5 backdrop-blur-sm'}
+          `}>
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                <span className="text-white font-bold text-xl">K</span>
+              </div>
+              <div className={`hidden sm:block leading-tight ${isScrolled ? 'text-white' : 'text-slate-900'}`}>
+                <div className="font-bold text-lg tracking-tight">КЛИНИНГ</div>
+                <div className="text-[10px] opacity-60 uppercase tracking-widest font-semibold">Екатеринбург</div>
+              </div>
             </a>
-            <span className="text-[10px] text-green-500 font-medium flex items-center gap-1">
-              <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-              Работаем сейчас
-            </span>
-          </div>
 
-          <button
-            onClick={onOrderClick}
-            className="hidden sm:block px-6 py-2.5 blue-gradient text-white rounded-full font-semibold shadow-lg shadow-blue-500/30 hover:scale-105 active:scale-95 transition-all text-sm"
-          >
-            Заказать уборку
-          </button>
+            {/* Desktop Nav */}
+            <nav className={`hidden lg:flex items-center gap-8 text-sm font-medium ${isScrolled ? 'text-slate-300' : 'text-slate-600'}`}>
+              {['Преимущества', 'Услуги', 'Отзывы', 'Контакты'].map((item, i) => (
+                <a
+                  key={i}
+                  href={`#${item === 'Контакты' ? 'order-form' : item === 'Отзывы' ? 'reviews' : item === 'Услуги' ? 'services' : 'features'}`}
+                  className="hover:text-brand-400 transition-colors relative group"
+                >
+                  {item}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ))}
+            </nav>
 
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg"
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-      </div>
+            {/* Actions */}
+            <div className="flex items-center gap-4">
+              <div className={`hidden md:flex flex-col items-end ${isScrolled ? 'text-white' : 'text-slate-900'}`}>
+                <a href="tel:+73510000000" className="font-bold hover:text-brand-400 transition-colors flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-brand-500" />
+                  +7 (351) 000-00-00
+                </a>
+              </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t p-6 shadow-2xl animate-in slide-in-from-top duration-300">
-          <nav className="flex flex-col gap-4 text-lg font-medium">
-            <a href="#features" onClick={() => setIsMenuOpen(false)} className="py-2 border-b">Преимущества</a>
-            <a href="#services" onClick={() => setIsMenuOpen(false)} className="py-2 border-b">Услуги</a>
-            <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="py-2 border-b">Отзывы</a>
-            <a href="#order-form" onClick={() => setIsMenuOpen(false)} className="py-2 border-b">Контакты</a>
-            <div className="pt-4 flex flex-col gap-4">
-              <a href="tel:+73510000000" className="flex items-center gap-3 text-blue-600 font-bold">
-                <Phone className="w-5 h-5" />
-                +7 (351) 000-00-00
-              </a>
-              <button
-                onClick={() => { setIsMenuOpen(false); onOrderClick(); }}
-                className="w-full py-4 blue-gradient text-white rounded-2xl font-bold shadow-xl shadow-blue-500/20"
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={onOrderClick}
+                className="hidden sm:block px-6 py-2.5 bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-full font-semibold shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transition-all text-sm"
               >
-                Оставить заявку
+                Заказать
+              </motion.button>
+
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-white hover:bg-slate-800' : 'text-slate-900 hover:bg-slate-100'}`}
+              >
+                {isMenuOpen ? <X /> : <Menu />}
               </button>
             </div>
-          </nav>
+          </div>
         </div>
-      )}
-    </header>
+      </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="fixed inset-x-0 top-[80px] z-40 lg:hidden px-4"
+          >
+            <div className="bg-white rounded-3xl p-6 shadow-2xl border border-slate-100 overflow-hidden">
+              <nav className="flex flex-col gap-2">
+                {['Преимущества', 'Услуги', 'Отзывы', 'Контакты'].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item === 'Контакты' ? 'order-form' : item === 'Отзывы' ? 'reviews' : item === 'Услуги' ? 'services' : 'features'}`}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-4 rounded-xl hover:bg-slate-50 text-slate-900 font-medium transition-colors flex items-center justify-between group"
+                  >
+                    {item}
+                    <span className="text-slate-300 group-hover:text-brand-500 transition-colors">→</span>
+                  </a>
+                ))}
+
+                <div className="mt-4 pt-4 border-t border-slate-100">
+                  <a href="tel:+73510000000" className="flex items-center justify-center gap-2 py-3 text-slate-500 font-semibold mb-3">
+                    <Phone className="w-4 h-4" />
+                    +7 (351) 000-00-00
+                  </a>
+                  <button
+                    onClick={() => { setIsMenuOpen(false); onOrderClick(); }}
+                    className="w-full py-4 bg-brand-600 text-white rounded-xl font-bold hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/20"
+                  >
+                    Оставить заявку
+                  </button>
+                </div>
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Calculator from './components/Calculator';
 import Features from './components/Features';
 import BeforeAfter from './components/BeforeAfter';
 import Services from './components/Services';
@@ -19,6 +20,7 @@ const App: React.FC = () => {
 
       <main>
         <Hero onOrderClick={() => setShowModal(true)} />
+        <Calculator />
         <Features />
         <BeforeAfter />
         <Services />
