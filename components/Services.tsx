@@ -7,14 +7,14 @@ const Services: React.FC = () => {
     {
       title: "Поддерживающая",
       price: "от 120 ₽/м²",
-      image: "https://images.unsplash.com/photo-1581578731117-104f2a41272c?auto=format&fit=crop&q=80&w=800",
+      image: "images/services/standard.jpg",
       benefits: ["Влажная уборка полов", "Удаление пыли с мебели", "Очистка зеркал", "Уборка санузла"],
       delay: 0
     },
     {
       title: "Генеральная",
       price: "от 250 ₽/м²",
-      image: "https://images.unsplash.com/photo-1527512660517-6f03ba763584?auto=format&fit=crop&q=80&w=800",
+      image: "images/services/general.jpg",
       popular: true,
       benefits: ["Обезжиривание кухни", "Глубокая чистка с/у", "Мойка внутри шкафов", "Очистка стен и дверей"],
       delay: 0.1
@@ -22,7 +22,7 @@ const Services: React.FC = () => {
     {
       title: "После ремонта",
       price: "от 300 ₽/м²",
-      image: "https://images.unsplash.com/photo-1505798577917-a651a5d40320?auto=format&fit=crop&q=80&w=800",
+      image: "images/services/repair.jpg",
       benefits: ["Сбор строймусора", "Обеспыливание всех ниш", "Мойка окон от цемента", "Удаление затирки"],
       delay: 0.2
     }

@@ -51,8 +51,8 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
               <span>Клининг №1 в Екатеринбурге</span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
-              Идеальная чистота <br className="hidden md:block" />
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
+              Идеальная чистота<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">без компромиссов</span>
             </h1>
 
@@ -117,7 +117,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
           >
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-brand-900/10 border-[6px] border-white ring-1 ring-slate-900/5 rotate-1 hover:rotate-0 transition-all duration-700 group">
               <img
-                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                src="images/hero_image.jpg"
                 className="w-full h-[600px] object-cover object-center transform group-hover:scale-105 transition-transform duration-1000"
                 alt="Modern Living Room Cleaning"
               />
