@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Star, Shield, Clock, CheckCircle, Sparkles } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import heroImage from '@/assets/images/hero_image.png';
+import avatar1 from '@/assets/images/avatars/1.png';
+import avatar2 from '@/assets/images/avatars/2.png';
+import avatar3 from '@/assets/images/avatars/3.png';
+
+const avatars = [avatar1, avatar2, avatar3];
 
 interface HeroProps {
   onOrderClick: () => void;
@@ -142,7 +148,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
               <img
-                src="/images/hero_image.png"
+                src={heroImage}
                 className="w-full h-full object-cover"
                 alt="Clean Interior"
               />
@@ -177,9 +183,9 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3].map(i => (
+                  {avatars.map((avatar, i) => (
                     <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <img src={`/images/avatars/${i}.png`} className="w-full h-full object-cover" />
+                      <img src={avatar} className="w-full h-full object-cover" />
                     </div>
                   ))}
                 </div>

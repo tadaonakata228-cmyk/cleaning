@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import avatar1 from '@/assets/images/avatars/1.png';
+import avatar2 from '@/assets/images/avatars/2.png';
+import avatar3 from '@/assets/images/avatars/3.png';
 
 const Testimonials: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -11,21 +14,21 @@ const Testimonials: React.FC = () => {
       area: "Название р-н",
       text: "Заказывала генеральную уборку после переезда. Отмыли всё до блеска, даже духовку, которую я думала уже не спасти. Рекомендую!",
       rating: 5,
-      avatar: "/images/avatars/1.png"
+      avatar: avatar1
     },
     {
       name: "Михаил Волков",
       area: "ЖК Название",
       text: "Вызывал ребят на уборку после ремонта. Пыль была везде. Приехали с мощным пылесосом и за 5 часов сделали квартиру жилой. Сервис на высоте.",
       rating: 5,
-      avatar: "/images/avatars/2.png"
+      avatar: avatar2
     },
     {
       name: "Елена С.",
       area: "Название р-н",
       text: "Пользуюсь поддерживающей уборкой раз в неделю. Очень удобно, освободилось куча времени. Клинеры всегда вежливые и аккуратные.",
       rating: 5,
-      avatar: "/images/avatars/3.png"
+      avatar: avatar3
     }
   ];
 
