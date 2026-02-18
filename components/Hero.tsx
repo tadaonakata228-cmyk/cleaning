@@ -52,9 +52,8 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
-              Идеальная <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">чистота</span> <br />
-              без компромиссов
+              Идеальная чистота <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">без компромиссов</span>
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -76,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
                 <div className="flex -space-x-4">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-slate-200">
-                      <img src={`https://ui-avatars.com/api/?name=User+${i}&background=random`} className="w-full h-full object-cover" alt={`Client ${i}`} />
+                      <img src={`/images/avatars/${i}.jpg`} className="w-full h-full object-cover" alt={`Client ${i}`} />
                     </div>
                   ))}
                 </div>
@@ -118,7 +117,7 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
           >
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-brand-900/10 border-[6px] border-white ring-1 ring-slate-900/5 rotate-1 hover:rotate-0 transition-all duration-700 group">
               <img
-                src="https://images.unsplash.com/photo-1581578731117-104f2a41272c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 className="w-full h-[600px] object-cover object-center transform group-hover:scale-105 transition-transform duration-1000"
                 alt="Modern Living Room Cleaning"
               />
@@ -148,8 +147,8 @@ const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
                 className="absolute bottom-8 right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 max-w-xs"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 overflow-hidden rounded-full">
-                    <img src="https://ui-avatars.com/api/?name=Marina+I&background=random" alt="Reviewer" />
+                  <div className="w-10 h-10 overflow-hidden rounded-full border border-slate-200">
+                    <img src="/images/avatars/4.jpg" className="w-full h-full object-cover" alt="Reviewer" />
                   </div>
                   <div>
                     <div className="flex text-yellow-400 w-20">

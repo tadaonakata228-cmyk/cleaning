@@ -11,21 +11,21 @@ const Testimonials: React.FC = () => {
       area: "Центральный р-н",
       text: "Заказывала генеральную уборку после переезда. Отмыли всё до блеска, даже духовку, которую я думала уже не спасти. Рекомендую!",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200"
+      avatar: "/images/avatars/1.jpg"
     },
     {
       name: "Михаил Волков",
       area: "ЖК Александровский",
       text: "Вызывал ребят на уборку после ремонта. Пыль была везде. Приехали с мощным пылесосом и за 5 часов сделали квартиру жилой. Сервис на высоте.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
+      avatar: "/images/avatars/2.jpg"
     },
     {
       name: "Елена С.",
       area: "Курчатовский р-н",
       text: "Пользуюсь поддерживающей уборкой раз в неделю. Очень удобно, освободилось куча времени. Клинеры всегда вежливые и аккуратные.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
+      avatar: "/images/avatars/3.jpg"
     }
   ];
 
