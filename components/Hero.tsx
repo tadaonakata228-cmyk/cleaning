@@ -1,171 +1,210 @@
-import React from 'react';
-import { Star, ShieldCheck, Clock, CheckCircle, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Star, Shield, Clock, CheckCircle, Sparkles } from 'lucide-react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 interface HeroProps {
   onOrderClick: () => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onOrderClick }) => {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+
+  // Dust particles state
+  const [particles, setParticles] = useState<{ id: number, x: number, y: number, size: number }[]>([]);
+
+  useEffect(() => {
+    // Generate random dust particles
+    const newParticles = Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 1
+    }));
+    setParticles(newParticles);
+  }, []);
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-50 min-h-[90vh] flex items-center">
-      {/* Background Decorative Elements */}
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30 min-h-[95vh] flex items-center">
+
+      {/* Ambient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-brand-200/20 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-200/20 rounded-full blur-[100px] transform -translate-x-1/3 translate-y-1/3"></div>
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 right-[10%] w-20 h-20 bg-gradient-to-br from-brand-400 to-blue-500 rounded-3xl opacity-10 blur-xl"
-        />
-        <motion.div
-          animate={{
-            y: [0, 30, 0],
-            rotate: [0, -10, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-1/4 left-[5%] w-32 h-32 bg-gradient-to-tr from-purple-400 to-brand-500 rounded-full opacity-10 blur-xl"
-        />
+        <div className="absolute top-[-10%] right-[-5%] w-[60%] h-[60%] bg-blue-100/30 rounded-full blur-[120px] mix-blend-multiply transition-all duration-1000"></div>
+        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-50/40 rounded-full blur-[120px] mix-blend-multiply transition-all duration-1000"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:w-1/2 text-center lg:text-left"
+            className="lg:w-1/2 text-center lg:text-left relative"
           >
+            {/* Dust Animation Overlay on Text Area (Clearing effect) */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+              <AnimatePresence>
+                {particles.map((p) => (
+                  <motion.div
+                    key={p.id}
+                    initial={{ opacity: 0.4, scale: 1 }}
+                    animate={{
+                      opacity: [0.4, 0.8, 0],
+                      scale: [1, 0],
+                      x: Math.random() * 50 - 25, // drift
+                      y: Math.random() * -50 - 20 // float up
+                    }}
+                    transition={{
+                      duration: 2 + Math.random() * 2,
+                      repeat: Infinity,
+                      repeatDelay: Math.random() * 3
+                    }}
+                    className="absolute rounded-full bg-slate-200"
+                    style={{
+                      left: `${p.x}%`,
+                      top: `${p.y}%`,
+                      width: p.size,
+                      height: p.size
+                    }}
+                  />
+                ))}
+              </AnimatePresence>
+            </div>
+
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-brand-100 rounded-full text-brand-600 text-sm font-semibold mb-8 shadow-sm hover:shadow-md transition-shadow cursor-default"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/80 backdrop-blur-md border border-white/60 rounded-full text-brand-600 text-sm font-semibold mb-8 shadow-sm hover:shadow-md transition-all cursor-default select-none animate-float"
             >
-              <Star className="w-4 h-4 fill-brand-500 text-brand-500" />
-              <span>Клининг №1 в Екатеринбурге</span>
+              <Sparkles className="w-4 h-4 fill-brand-200 text-brand-500" />
+              <span>Сервис будущего уже здесь</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight max-w-4xl mx-auto lg:mx-0">
-              <span className="block">Идеальная чистота</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400 block">без компромиссов</span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 leading-[1.05] mb-8 tracking-tight max-w-4xl mx-auto lg:mx-0">
+              Профессиональная<br />
+              уборка квартир<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-blue-500 to-brand-400 animate-shimmer bg-[length:200%_auto]">за 2 часа</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Технологичный подход к уборке. Мы используем эко-средства и профессиональное оборудование, чтобы ваш дом сиял.
+            <p className="text-xl md:text-2xl text-slate-500 font-medium mb-12 max-w-2xl mx-auto lg:mx-0 flex flex-col md:flex-row gap-2 md:gap-6 justify-center lg:justify-start items-center">
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-brand-500" />
+                Фиксированная цена
+              </span>
+              <span className="hidden md:inline w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-brand-500" />
+                Приезд сегодня
+              </span>
+              <span className="hidden md:inline w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-brand-500" />
+                Гарантия
+              </span>
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 mb-20 relative z-20">
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02, translateY: -2 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={onOrderClick}
-                className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-brand-600 to-brand-500 text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-500/30 hover:shadow-brand-500/50 transition-all flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-10 py-5 bg-brand-600 text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-500/20 hover:shadow-brand-500/40 hover:bg-brand-500 transition-all flex items-center justify-center gap-3 group relative overflow-hidden"
               >
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 slant-x-12"></div>
                 Рассчитать стоимость
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <div className="bg-white/20 rounded-full p-1 group-hover:translate-x-1 transition-transform">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
               </motion.button>
 
-              <div className="flex items-center gap-4 px-6 py-4 rounded-2xl hover:bg-white/50 transition-colors">
-                <div className="flex -space-x-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-12 h-12 rounded-full border-2 border-white shadow-sm overflow-hidden bg-slate-200">
-                      <img src={`images/avatars/${i}.jpg`} className="w-full h-full object-cover" alt={`Client ${i}`} />
-                    </div>
-                  ))}
-                </div>
-                <div className="text-left">
-                  <div className="font-bold text-slate-900 text-lg">1200+</div>
-                  <div className="text-xs text-slate-500 font-medium">Довольных клиентов</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center lg:justify-start gap-8 text-sm font-semibold text-slate-600">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                Страховка
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <Clock className="w-4 h-4" />
-                </div>
-                Выезд 60 мин
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
-                  <Star className="w-4 h-4" />
-                </div>
-                PRO-клинеры
+              <div className="text-sm font-medium text-slate-400 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                2 свободных клинера сейчас
               </div>
             </div>
           </motion.div>
 
-          {/* Right Visual */}
+          {/* Right Visual - Abstract/Clean/Glass */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="lg:w-1/2 relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="lg:w-1/2 relative h-[500px] md:h-[600px] w-full flex items-center justify-center"
           >
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-brand-900/10 border-[6px] border-white ring-1 ring-slate-900/5 rotate-1 hover:rotate-0 transition-all duration-700 group">
+            {/* Main Image Container with Glass Effect */}
+            <motion.div
+              style={{ y: y1 }}
+              className="relative z-10 w-full max-w-lg aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 backdrop-blur-sm"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
               <img
                 src="images/hero_image.png"
-                className="w-full h-[600px] object-cover object-center transform group-hover:scale-105 transition-transform duration-1000"
-                alt="Modern Living Room Cleaning"
+                className="w-full h-full object-cover"
+                alt="Clean Interior"
               />
 
-              {/* Floating Cards within Image */}
+              {/* Glass Overlay Card */}
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                className="absolute top-8 left-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50"
+                transition={{ delay: 0.8, duration: 0.8 }}
+                className="absolute bottom-6 left-6 right-6 bg-white/70 backdrop-blur-xl border border-white/60 p-5 rounded-3xl shadow-lg flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                    <CheckCircle className="w-6 h-6" />
+                  <div className="bg-green-100 p-2.5 rounded-full text-green-600">
+                    <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-400 uppercase">Статус</p>
-                    <p className="font-bold text-slate-800">Уборка завершена</p>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wide">Результат</p>
+                    <p className="font-bold text-slate-800">Идеальная чистота</p>
                   </div>
                 </div>
+                <div className="h-8 w-px bg-slate-200"></div>
+                <div className="text-right">
+                  <p className="text-2xl font-black text-brand-600">100%</p>
+                </div>
               </motion.div>
+            </motion.div>
 
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="absolute bottom-8 right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 max-w-xs"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 overflow-hidden rounded-full border border-slate-200">
-                    <img src="images/avatars/4.jpg" className="w-full h-full object-cover" alt="Reviewer" />
-                  </div>
-                  <div>
-                    <div className="flex text-yellow-400 w-20">
-                      <Star className="w-3 h-3 fill-current" />
-                      <Star className="w-3 h-3 fill-current" />
-                      <Star className="w-3 h-3 fill-current" />
-                      <Star className="w-3 h-3 fill-current" />
-                      <Star className="w-3 h-3 fill-current" />
+            {/* Floating Glass Elements */}
+            <motion.div
+              style={{ y: y2 }}
+              className="absolute -right-8 top-20 w-48 bg-white/80 backdrop-blur-lg border border-white p-4 rounded-2xl shadow-xl shadow-brand-900/5 z-20 hidden md:block"
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3].map(i => (
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                      <img src={`images/avatars/${i}.jpg`} className="w-full h-full object-cover" />
                     </div>
-                    <p className="text-xs font-medium text-slate-600 mt-1">"Моя квартира никогда не была такой чистой!"</p>
-                  </div>
+                  ))}
                 </div>
-              </motion.div>
-            </div>
+                <div className="text-xs font-bold text-slate-600">+1.2k</div>
+              </div>
+              <div className="text-xs text-slate-500 font-medium">Довольных клиентов<br />в вашем районе</div>
+            </motion.div>
 
-            {/* Background Blobs for Visual */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10 bg-gradient-to-tr from-brand-200/40 to-purple-200/40 rounded-full blur-3xl opacity-50"></div>
+            <motion.div
+              animate={{
+                y: [0, 15, 0],
+                rotate: [0, -2, 0]
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-12 bottom-32 w-40 bg-white/90 backdrop-blur-md border border-white p-4 rounded-2xl shadow-xl shadow-blue-900/5 z-20 hidden md:flex items-center gap-3"
+            >
+              <div className="bg-blue-100 p-2.5 rounded-full text-brand-600">
+                <Clock className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-slate-400">Время</p>
+                <p className="font-bold text-slate-800">от 2 часов</p>
+              </div>
+            </motion.div>
+
           </motion.div>
         </div>
       </div>
