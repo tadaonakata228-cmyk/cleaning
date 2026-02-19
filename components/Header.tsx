@@ -23,31 +23,35 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isMenuOpen, setIsMenuOpen
   return (
     <>
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'}`}
+        initial={{ y: 0 }}
+        animate={{
+          y: isScrolled ? -100 : 0,
+          opacity: isScrolled ? 0 : 1
+        }}
+        transition={{ duration: 0.3 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 lg:py-6 ${isScrolled ? 'pointer-events-none' : 'pointer-events-auto'} lg:pointer-events-auto lg:!opacity-100 lg:!translate-y-0`}
       >
         <div className={`container mx-auto px-4 md:px-6 transition-all duration-300 ${isScrolled ? 'max-w-6xl' : ''}`}>
           <div className={`
             flex items-center justify-between px-6 py-3 rounded-full border transition-all duration-300
-            ${isScrolled
-              ? 'glass-dark border-slate-700/50 shadow-2xl bg-slate-900/80 backdrop-blur-xl'
-              : 'bg-white/10 border-transparent md:bg-white/5 backdrop-blur-sm'}
-          `}>
+            bg-white/10 border-transparent md:bg-white/5 backdrop-blur-sm
+            lg:data-[scrolled=true]:glass-dark lg:data-[scrolled=true]:border-slate-700/50 lg:data-[scrolled=true]:shadow-2xl lg:data-[scrolled=true]:bg-slate-900/80 lg:data-[scrolled=true]:backdrop-blur-xl
+          `}
+            data-scrolled={isScrolled}
+          >
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
                 <span className="text-white font-bold text-xl">K</span>
               </div>
-              <div className={`hidden sm:block leading-tight ${isScrolled ? 'text-white' : 'text-slate-900'}`}>
+              <div className={`block leading-tight text-slate-900 lg:text-slate-900 lg:group-data-[scrolled=true]:text-white`}>
                 <div className="font-bold text-lg tracking-tight">КЛИНИНГ</div>
-                <div className="text-[10px] opacity-60 uppercase tracking-widest font-semibold">Ваш город</div>
+                <div className="text-[10px] opacity-60 uppercase tracking-widest font-semibold">Наше название</div>
               </div>
             </a>
 
             {/* Desktop Nav */}
-            <nav className={`hidden lg:flex items-center gap-8 text-sm font-medium ${isScrolled ? 'text-slate-300' : 'text-slate-600'}`}>
+            <nav className={`hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600 lg:group-data-[scrolled=true]:text-slate-300`}>
               {['Преимущества', 'Услуги', 'Отзывы', 'Контакты'].map((item, i) => (
                 <a
                   key={i}
@@ -62,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isMenuOpen, setIsMenuOpen
 
             {/* Actions */}
             <div className="flex items-center gap-4">
-              <div className={`hidden md:flex flex-col items-end ${isScrolled ? 'text-white' : 'text-slate-900'}`}>
+              <div className={`hidden md:flex flex-col items-end text-slate-900 lg:group-data-[scrolled=true]:text-white`}>
                 <a href="tel:+73510000000" className="font-bold hover:text-brand-400 transition-colors flex items-center gap-2">
                   <Phone className="w-4 h-4 text-brand-500" />
                   +7 (351) 000-00-00
@@ -80,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick, isMenuOpen, setIsMenuOpen
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`hidden lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-white hover:bg-slate-800' : 'text-slate-900 hover:bg-slate-100'}`}
+                className={`hidden lg:hidden p-2 rounded-lg transition-colors text-slate-900 hover:bg-slate-100 placeholder-class`}
               >
                 {isMenuOpen ? <X /> : <Menu />}
               </button>
