@@ -24,7 +24,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOrderClick, onMenuC
             <motion.nav
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
-                className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-200 pb-safe lg:hidden"
+                className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-200 pb-[env(safe-area-inset-bottom)] lg:hidden transition-all duration-300"
             >
                 <div className="flex items-center justify-between px-2 py-2">
                     {/* City */}
