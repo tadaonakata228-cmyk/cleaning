@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeaderProps {
   onOrderClick: () => void;
+  isMenuOpen: boolean;
+  setIsMenuOpen: (isOpen: boolean) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
+const Header: React.FC<HeaderProps> = ({ onOrderClick, isMenuOpen, setIsMenuOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ onOrderClick }) => {
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-white hover:bg-slate-800' : 'text-slate-900 hover:bg-slate-100'}`}
+                className={`hidden lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-white hover:bg-slate-800' : 'text-slate-900 hover:bg-slate-100'}`}
               >
                 {isMenuOpen ? <X /> : <Menu />}
               </button>

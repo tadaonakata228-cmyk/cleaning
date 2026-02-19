@@ -23,26 +23,6 @@ const StickyCTA: React.FC<StickyCTAProps> = ({ onOrderClick }) => {
       <AnimatePresence>
         {visible && (
           <>
-            {/* Mobile Sticky Bar */}
-            <motion.div
-              initial={{ y: 100 }}
-              animate={{ y: 0 }}
-              exit={{ y: 100 }}
-              className="lg:hidden fixed bottom-6 left-4 right-4 z-40"
-            >
-              <div className="bg-white/80 backdrop-blur-xl border border-white/50 rounded-[2rem] p-2 shadow-2xl shadow-brand-900/10 flex items-center gap-3 pr-4">
-                <a href="https://wa.me/79057743600" className="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform">
-                  <MessageCircle className="w-6 h-6" />
-                </a>
-                <button
-                  onClick={onOrderClick}
-                  className="flex-grow py-3 bg-slate-900 text-white rounded-xl font-bold text-sm shadow-lg shadow-slate-900/20 active:scale-[0.98] transition-transform"
-                >
-                  Рассчитать стоимость
-                </button>
-              </div>
-            </motion.div>
-
             {/* Desktop Floating Actions */}
             <div className="hidden lg:flex fixed bottom-10 right-10 flex-col gap-4 z-40">
               <motion.a

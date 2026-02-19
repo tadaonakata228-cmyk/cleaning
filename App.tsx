@@ -11,13 +11,20 @@ import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import StickyCTA from './components/StickyCTA';
+import MobileBottomNav from './components/MobileBottomNav';
 
 const App: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="relative">
-      <Header onOrderClick={() => setShowModal(true)} />
+      <Header
+        onOrderClick={() => setShowModal(true)}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
 
       <main>
         <Hero onOrderClick={() => setShowModal(true)} />
@@ -33,7 +40,16 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
-      <StickyCTA onOrderClick={() => setShowModal(true)} />
+      <div className="hidden lg:block">
+        <StickyCTA onOrderClick={() => setShowModal(true)} />
+      </div>
+
+      {/* Mobile Bottom Navigation */}
+      <MobileBottomNav
+        onOrderClick={() => setShowModal(true)}
+        onMenuClick={toggleMenu}
+        isMenuOpen={isMenuOpen}
+      />
 
       {/* Simple Modal Overlay */}
       {showModal && (
